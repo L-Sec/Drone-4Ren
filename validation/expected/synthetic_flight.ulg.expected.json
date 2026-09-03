@@ -1,0 +1,243 @@
+{
+ "events": [
+  {
+   "clock_confidence": "gps",
+   "confidence": 1.0,
+   "event_type": "flight.armed",
+   "payload": {
+    "arming_state": 2,
+    "previous_state": 1
+   },
+   "source_offset": "vehicle_status:1",
+   "ts_original": "boot_us:101000000",
+   "ts_source": "logger",
+   "ts_utc": "2026-07-08T10:00:01.000000+00:00"
+  },
+  {
+   "clock_confidence": "gps",
+   "confidence": 1.0,
+   "event_type": "battery.status",
+   "payload": {
+    "current_a": 1.100000023841858,
+    "remaining_pct": 100,
+    "voltage_v": 16.799999237060547
+   },
+   "source_offset": "battery_status:0",
+   "ts_original": "boot_us:101200000",
+   "ts_source": "logger",
+   "ts_utc": "2026-07-08T10:00:01.200000+00:00"
+  },
+  {
+   "clock_confidence": "gps",
+   "confidence": 1.0,
+   "event_type": "log.message",
+   "payload": {
+    "level": "INFO",
+    "text": "Takeoff detected"
+   },
+   "source_offset": "logged_messages:0",
+   "ts_original": "boot_us:101600000",
+   "ts_source": "logger",
+   "ts_utc": "2026-07-08T10:00:01.600000+00:00"
+  },
+  {
+   "alt_msl": 488.0,
+   "clock_confidence": "gps",
+   "confidence": 1.0,
+   "event_type": "gps.position",
+   "lat": 47.397742,
+   "lon": 8.545594,
+   "payload": {
+    "eph_m": null,
+    "fix_type": 3,
+    "satellites": 14
+   },
+   "source_offset": "vehicle_gps_position:0",
+   "speed": 0.0,
+   "ts_original": "boot_us:102000000",
+   "ts_source": "gps",
+   "ts_utc": "2026-07-08T10:00:02.000000+00:00"
+  },
+  {
+   "alt_msl": 493.0,
+   "clock_confidence": "gps",
+   "confidence": 1.0,
+   "event_type": "gps.position",
+   "lat": 47.39776,
+   "lon": 8.5456,
+   "payload": {
+    "eph_m": null,
+    "fix_type": 3,
+    "satellites": 14
+   },
+   "source_offset": "vehicle_gps_position:1",
+   "speed": 2.5,
+   "ts_original": "boot_us:103000000",
+   "ts_source": "gps",
+   "ts_utc": "2026-07-08T10:00:03.000000+00:00"
+  },
+  {
+   "alt_msl": 503.0,
+   "clock_confidence": "gps",
+   "confidence": 1.0,
+   "event_type": "gps.position",
+   "lat": 47.3977999,
+   "lon": 8.54565,
+   "payload": {
+    "eph_m": null,
+    "fix_type": 3,
+    "satellites": 14
+   },
+   "source_offset": "vehicle_gps_position:2",
+   "speed": 5.0,
+   "ts_original": "boot_us:104000000",
+   "ts_source": "gps",
+   "ts_utc": "2026-07-08T10:00:04.000000+00:00"
+  },
+  {
+   "alt_msl": 513.0,
+   "clock_confidence": "gps",
+   "confidence": 1.0,
+   "event_type": "gps.position",
+   "lat": 47.39786,
+   "lon": 8.54572,
+   "payload": {
+    "eph_m": null,
+    "fix_type": 3,
+    "satellites": 14
+   },
+   "source_offset": "vehicle_gps_position:4",
+   "speed": 6.0,
+   "ts_original": "boot_us:105000000",
+   "ts_source": "gps",
+   "ts_utc": "2026-07-08T10:00:05.000000+00:00"
+  },
+  {
+   "alt_msl": 518.0,
+   "clock_confidence": "gps",
+   "confidence": 1.0,
+   "event_type": "gps.position",
+   "lat": 47.39793,
+   "lon": 8.5458,
+   "payload": {
+    "eph_m": null,
+    "fix_type": 3,
+    "satellites": 14
+   },
+   "source_offset": "vehicle_gps_position:5",
+   "speed": 7.5,
+   "ts_original": "boot_us:106000000",
+   "ts_source": "gps",
+   "ts_utc": "2026-07-08T10:00:06.000000+00:00"
+  },
+  {
+   "clock_confidence": "gps",
+   "confidence": 1.0,
+   "event_type": "battery.status",
+   "payload": {
+    "current_a": 6.400000095367432,
+    "remaining_pct": 91,
+    "voltage_v": 15.899999618530273
+   },
+   "source_offset": "battery_status:1",
+   "ts_original": "boot_us:106500000",
+   "ts_source": "logger",
+   "ts_utc": "2026-07-08T10:00:06.500000+00:00"
+  },
+  {
+   "alt_msl": 518.0,
+   "clock_confidence": "gps",
+   "confidence": 1.0,
+   "event_type": "gps.position",
+   "lat": 47.398,
+   "lon": 8.5459,
+   "payload": {
+    "eph_m": null,
+    "fix_type": 3,
+    "satellites": 14
+   },
+   "source_offset": "vehicle_gps_position:6",
+   "speed": 8.0,
+   "ts_original": "boot_us:107000000",
+   "ts_source": "gps",
+   "ts_utc": "2026-07-08T10:00:07.000000+00:00"
+  },
+  {
+   "clock_confidence": "gps",
+   "confidence": 1.0,
+   "event_type": "log.message",
+   "payload": {
+    "level": "WARNING",
+    "text": "RTL: return at 30m"
+   },
+   "source_offset": "logged_messages:1",
+   "ts_original": "boot_us:107500000",
+   "ts_source": "logger",
+   "ts_utc": "2026-07-08T10:00:07.500000+00:00"
+  },
+  {
+   "alt_msl": 508.0,
+   "clock_confidence": "gps",
+   "confidence": 1.0,
+   "event_type": "gps.position",
+   "lat": 47.39793,
+   "lon": 8.5458,
+   "payload": {
+    "eph_m": null,
+    "fix_type": 3,
+    "satellites": 14
+   },
+   "source_offset": "vehicle_gps_position:7",
+   "speed": 6.0,
+   "ts_original": "boot_us:108000000",
+   "ts_source": "gps",
+   "ts_utc": "2026-07-08T10:00:08.000000+00:00"
+  },
+  {
+   "alt_msl": 500.0,
+   "clock_confidence": "gps",
+   "confidence": 1.0,
+   "event_type": "gps.position",
+   "lat": 47.39788,
+   "lon": 8.54574,
+   "payload": {
+    "eph_m": null,
+    "fix_type": 3,
+    "satellites": 14
+   },
+   "source_offset": "vehicle_gps_position:8",
+   "speed": 4.0,
+   "ts_original": "boot_us:108500000",
+   "ts_source": "gps",
+   "ts_utc": "2026-07-08T10:00:08.500000+00:00"
+  },
+  {
+   "clock_confidence": "gps",
+   "confidence": 1.0,
+   "event_type": "flight.disarmed",
+   "payload": {
+    "arming_state": 1,
+    "previous_state": 2
+   },
+   "source_offset": "vehicle_status:2",
+   "ts_original": "boot_us:109000000",
+   "ts_source": "logger",
+   "ts_utc": "2026-07-08T10:00:09.000000+00:00"
+  },
+  {
+   "confidence": 1.0,
+   "event_type": "parser.summary",
+   "payload": {
+    "datasets": [
+     "battery_status",
+     "vehicle_gps_position",
+     "vehicle_status"
+    ],
+    "position_downsample_interval_s": 1.0,
+    "utc_anchored": true
+   }
+  }
+ ],
+ "parser": "px4-ulog",
+ "parser_version": "0.1.0"
+}

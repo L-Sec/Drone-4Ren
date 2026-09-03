@@ -1,0 +1,32 @@
+{
+ "events": [
+  {
+   "confidence": 1.0,
+   "event_type": "artifact.recognized",
+   "payload": {
+    "decoding_status": "available: set DJI_API_KEY in the server environment and parse again",
+    "details_offset": 268,
+    "details_strings": [
+     "Mavic 2 Pro",
+     "SN0123456789AB",
+     "Zurich Oerlikon"
+    ],
+    "encrypted": false,
+    "format": "dji-flightrecord-txt",
+    "format_version": 12,
+    "record_area_bytes": 256
+   },
+   "source_offset": "header"
+  },
+  {
+   "confidence": 1.0,
+   "event_type": "parser.summary",
+   "payload": {
+    "reason": "DJI_API_KEY is not set; recognition completed",
+    "telemetry_decoded": false
+   }
+  }
+ ],
+ "parser": "dji-txt",
+ "parser_version": "0.2.0"
+}

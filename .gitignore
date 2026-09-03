@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+# Tooling caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.release-tmp/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Never commit case data or evidence
+cases/
+local-cases/
+.local-cases/
+.*-case*/
+DJI Test 4Ren/
+*.sqlite
+
+# Local secrets and environment overrides
+.env
+.env.*
+!.env.example
+*.pem
+*.key

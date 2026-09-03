@@ -1,0 +1,266 @@
+{
+ "events": [
+  {
+   "clock_confidence": "gps",
+   "confidence": 1.0,
+   "event_type": "log.message",
+   "payload": {
+    "text": "ArduCopter V4.5.1 synthetic"
+   },
+   "source_offset": "rec:7",
+   "ts_source": "gps_log_clock",
+   "ts_utc": "2026-07-08T10:00:00.000000+00:00"
+  },
+  {
+   "clock_confidence": "gps",
+   "confidence": 1.0,
+   "event_type": "flight.mode",
+   "payload": {
+    "mode": "0",
+    "mode_num": 0,
+    "reason": null
+   },
+   "source_offset": "rec:8",
+   "ts_source": "gps_log_clock",
+   "ts_utc": "2026-07-08T10:00:00.100000+00:00"
+  },
+  {
+   "clock_confidence": "gps",
+   "confidence": 1.0,
+   "event_type": "flight.armed",
+   "payload": {
+    "event_id": 10,
+    "event_name": "armed"
+   },
+   "source_offset": "rec:9",
+   "ts_source": "gps_log_clock",
+   "ts_utc": "2026-07-08T10:00:01.000000+00:00"
+  },
+  {
+   "clock_confidence": "gps",
+   "confidence": 1.0,
+   "event_type": "flight.mode",
+   "payload": {
+    "mode": "4",
+    "mode_num": 4,
+    "reason": null
+   },
+   "source_offset": "rec:10",
+   "ts_source": "gps_log_clock",
+   "ts_utc": "2026-07-08T10:00:01.100000+00:00"
+  },
+  {
+   "clock_confidence": "gps",
+   "confidence": 1.0,
+   "event_type": "battery.status",
+   "payload": {
+    "consumed_mah": null,
+    "current_a": 0.800000011920929,
+    "remaining_pct": null,
+    "temperature_c": null,
+    "voltage_v": 12.600000381469727
+   },
+   "source_offset": "rec:11",
+   "ts_source": "gps_log_clock",
+   "ts_utc": "2026-07-08T10:00:01.200000+00:00"
+  },
+  {
+   "alt_msl": 488.0,
+   "clock_confidence": "gps",
+   "confidence": 1.0,
+   "event_type": "gps.position",
+   "heading": 90.0,
+   "lat": 47.397742,
+   "lon": 8.545594,
+   "payload": {
+    "fix_status": 3,
+    "hdop": 0.800000011920929,
+    "satellites": 12
+   },
+   "source_offset": "rec:12",
+   "speed": 0.0,
+   "ts_source": "gps_log_clock",
+   "ts_utc": "2026-07-08T10:00:02.000000+00:00"
+  },
+  {
+   "alt_msl": 493.0,
+   "clock_confidence": "gps",
+   "confidence": 1.0,
+   "event_type": "gps.position",
+   "heading": 90.0,
+   "lat": 47.39776,
+   "lon": 8.5456,
+   "payload": {
+    "fix_status": 3,
+    "hdop": 0.800000011920929,
+    "satellites": 12
+   },
+   "source_offset": "rec:13",
+   "speed": 2.5,
+   "ts_source": "gps_log_clock",
+   "ts_utc": "2026-07-08T10:00:03.000000+00:00"
+  },
+  {
+   "alt_msl": 503.0,
+   "clock_confidence": "gps",
+   "confidence": 1.0,
+   "event_type": "gps.position",
+   "heading": 90.0,
+   "lat": 47.3977999,
+   "lon": 8.54565,
+   "payload": {
+    "fix_status": 3,
+    "hdop": 0.800000011920929,
+    "satellites": 12
+   },
+   "source_offset": "rec:14",
+   "speed": 5.0,
+   "ts_source": "gps_log_clock",
+   "ts_utc": "2026-07-08T10:00:04.000000+00:00"
+  },
+  {
+   "alt_msl": 513.0,
+   "clock_confidence": "gps",
+   "confidence": 1.0,
+   "event_type": "gps.position",
+   "heading": 90.0,
+   "lat": 47.39786,
+   "lon": 8.54572,
+   "payload": {
+    "fix_status": 3,
+    "hdop": 0.800000011920929,
+    "satellites": 12
+   },
+   "source_offset": "rec:16",
+   "speed": 6.0,
+   "ts_source": "gps_log_clock",
+   "ts_utc": "2026-07-08T10:00:05.000000+00:00"
+  },
+  {
+   "alt_msl": 518.0,
+   "clock_confidence": "gps",
+   "confidence": 1.0,
+   "event_type": "gps.position",
+   "heading": 90.0,
+   "lat": 47.39793,
+   "lon": 8.5458,
+   "payload": {
+    "fix_status": 3,
+    "hdop": 0.800000011920929,
+    "satellites": 12
+   },
+   "source_offset": "rec:17",
+   "speed": 7.5,
+   "ts_source": "gps_log_clock",
+   "ts_utc": "2026-07-08T10:00:06.000000+00:00"
+  },
+  {
+   "alt_msl": 518.0,
+   "clock_confidence": "gps",
+   "confidence": 1.0,
+   "event_type": "gps.position",
+   "heading": 90.0,
+   "lat": 47.398,
+   "lon": 8.5459,
+   "payload": {
+    "fix_status": 3,
+    "hdop": 0.800000011920929,
+    "satellites": 12
+   },
+   "source_offset": "rec:18",
+   "speed": 8.0,
+   "ts_source": "gps_log_clock",
+   "ts_utc": "2026-07-08T10:00:07.000000+00:00"
+  },
+  {
+   "alt_msl": 508.0,
+   "clock_confidence": "gps",
+   "confidence": 1.0,
+   "event_type": "gps.position",
+   "heading": 90.0,
+   "lat": 47.39793,
+   "lon": 8.5458,
+   "payload": {
+    "fix_status": 3,
+    "hdop": 0.800000011920929,
+    "satellites": 12
+   },
+   "source_offset": "rec:19",
+   "speed": 6.0,
+   "ts_source": "gps_log_clock",
+   "ts_utc": "2026-07-08T10:00:08.000000+00:00"
+  },
+  {
+   "clock_confidence": "gps",
+   "confidence": 1.0,
+   "event_type": "battery.status",
+   "payload": {
+    "consumed_mah": null,
+    "current_a": 2.5,
+    "remaining_pct": null,
+    "temperature_c": null,
+    "voltage_v": 12.100000381469727
+   },
+   "source_offset": "rec:21",
+   "ts_source": "gps_log_clock",
+   "ts_utc": "2026-07-08T10:00:06.500000+00:00"
+  },
+  {
+   "clock_confidence": "gps",
+   "confidence": 1.0,
+   "event_type": "flight.mode",
+   "payload": {
+    "mode": "6",
+    "mode_num": 6,
+    "reason": null
+   },
+   "source_offset": "rec:22",
+   "ts_source": "gps_log_clock",
+   "ts_utc": "2026-07-08T10:00:07.500000+00:00"
+  },
+  {
+   "clock_confidence": "gps",
+   "confidence": 1.0,
+   "event_type": "flight.disarmed",
+   "payload": {
+    "event_id": 11,
+    "event_name": "disarmed"
+   },
+   "source_offset": "rec:23",
+   "ts_source": "gps_log_clock",
+   "ts_utc": "2026-07-08T10:00:09.000000+00:00"
+  },
+  {
+   "alt_msl": 500.0,
+   "clock_confidence": "gps",
+   "confidence": 1.0,
+   "event_type": "gps.position",
+   "heading": 90.0,
+   "lat": 47.39788,
+   "lon": 8.54574,
+   "payload": {
+    "fix_status": 3,
+    "hdop": 0.800000011920929,
+    "satellites": 12
+   },
+   "source_offset": "rec:20",
+   "speed": 4.0,
+   "ts_source": "gps_log_clock",
+   "ts_utc": "2026-07-08T10:00:08.500000+00:00"
+  },
+  {
+   "confidence": 1.0,
+   "event_type": "parser.summary",
+   "payload": {
+    "position_downsample_interval_s": 1.0,
+    "records_read": 23,
+    "uninterpreted_record_types": {
+     "FMT": 6
+    }
+   },
+   "source_offset": "rec:23"
+  }
+ ],
+ "parser": "ardupilot-bin",
+ "parser_version": "0.1.0"
+}

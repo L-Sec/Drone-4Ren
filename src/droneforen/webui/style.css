@@ -1,0 +1,108 @@
+:root {
+  /* Dark theme. Surfaces climb from base -> card -> raised; text is off-white,
+     never pure #fff, to soften glare on dark backgrounds. */
+  --base: #0f141a;      /* page background            */
+  --card: #171e26;      /* panels / cards             */
+  --raised: #1f2831;    /* table headers, inputs      */
+  --line: #2c3742;      /* borders / dividers         */
+  --line-soft: #232c35;
+  --ink: #e6eaef;       /* primary text               */
+  --muted: #93a0ad;     /* secondary text             */
+  --accent: #3d8bd4;    /* primary action / active    */
+  --accent-hi: #6db3f2; /* links, info, hover text    */
+  --on-accent: #ffffff; /* text on accent fills       */
+  --alert: #f2777a;     /* red   (dark-safe)          */
+  --warn: #e0b341;      /* amber (dark-safe)          */
+  --ok: #5fbf74;        /* green (dark-safe)          */
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Georgia, 'Times New Roman', serif;
+       color: var(--ink); background: var(--base); }
+
+header { padding: .7rem 1.2rem 0; border-bottom: 1px solid var(--line);
+         background: var(--card); }
+h1 { font-size: 1.25rem; margin: 0 0 .5rem; color: var(--ink); }
+.case-chip { font-family: Consolas, monospace; font-size: .85rem;
+             background: var(--accent); color: var(--on-accent);
+             padding: .15rem .5rem; border-radius: 3px; vertical-align: middle; }
+
+/* Tabs. Explicit text colors on every state so the generic button rule can
+   never leave light-on-light text. */
+nav button { border: 1px solid var(--line); border-bottom: none;
+             background: var(--raised); color: var(--muted);
+             padding: .4rem .9rem; cursor: pointer;
+             font-family: inherit; font-size: .85rem; margin: 0; }
+nav button:hover { color: var(--ink); background: var(--line-soft); }
+nav button.active { background: var(--base); color: var(--accent-hi);
+                    font-weight: bold; border-top: 3px solid var(--accent); }
+
+main { padding: 1rem 1.2rem; max-width: 75rem; margin: 0 auto; }
+.tab { display: none; }
+.tab.active { display: block; }
+.card { background: var(--card); border: 1px solid var(--line);
+        border-radius: 6px; padding: .8rem 1rem; margin-bottom: 1rem; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 60rem) { .grid2 { grid-template-columns: 1fr; } }
+h2 { font-size: 1rem; margin: .2rem 0 .6rem; color: var(--ink);
+     border-bottom: 1px solid var(--line); padding-bottom: .25rem; }
+h3 { color: var(--ink); }
+
+table { border-collapse: collapse; width: 100%; font-size: .78rem; }
+th, td { border: 1px solid var(--line); padding: .25rem .45rem; text-align: left;
+         vertical-align: top; }
+th { background: var(--raised); color: var(--ink); }
+tr:nth-child(even) td { background: rgba(255, 255, 255, .015); }
+
+.mono { font-family: Consolas, Menlo, monospace; font-size: .74rem;
+        word-break: break-all; }
+.muted { color: var(--muted); font-size: .78rem; font-weight: normal; }
+.badge { font-family: Consolas, monospace; font-size: .6rem; padding: .1rem .4rem;
+         border-radius: 3px; vertical-align: middle; }
+.der { background: #34290f; border: 1px solid #7a6234; color: #e0b341; }
+.sev-alert { color: var(--alert); font-weight: bold; }
+.sev-warning { color: var(--warn); font-weight: bold; }
+.sev-info { color: var(--accent-hi); }
+.ok { color: var(--ok); font-weight: bold; }
+.fail { color: var(--alert); font-weight: bold; }
+
+/* Action buttons. */
+button { font-family: inherit; font-size: .82rem; padding: .35rem .8rem;
+         border: 1px solid var(--accent); border-radius: 4px;
+         background: var(--accent); color: var(--on-accent);
+         cursor: pointer; margin: .2rem 0; }
+button:hover { filter: brightness(1.12); }
+button:disabled { background: var(--line); border-color: var(--line);
+                  color: var(--muted); cursor: not-allowed; filter: none; }
+
+/* Inputs. */
+form input[type=text], form select { width: 100%; padding: .3rem .4rem;
+  margin: .18rem 0; border: 1px solid var(--line); border-radius: 4px;
+  font-family: inherit; font-size: .8rem;
+  background: var(--raised); color: var(--ink); }
+form input[type=text]::placeholder { color: var(--muted); }
+form input[type=file] { color: var(--muted); font-size: .8rem; margin: .18rem 0; }
+label { color: var(--ink); }
+
+.row { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; }
+.row > * { flex: 1; }
+.row > button, .row > span { flex: 0 0 auto; }
+
+.warnbox { background: #2a2413; border: 1px solid #6a5a2a; color: #e8dcae;
+           padding: .5rem .7rem; font-size: .78rem; margin-bottom: .5rem;
+           border-radius: 4px; }
+.warnbox strong { color: var(--warn); }
+.warnbox ul { margin: .3rem 0 .4rem 1.1rem; padding: 0; }
+.warnbox li { margin-bottom: .15rem; }
+
+#map-holder svg { width: 100%; height: auto; border: 1px solid var(--line);
+                  border-radius: 4px; background: #0c1116; }
+#map-holder svg.map-track-overlay { background: transparent; border: 0;
+                                    border-radius: 0; pointer-events: none; }
+
+a { color: var(--accent-hi); }
+footer { padding: .8rem 1.2rem; font-size: .72rem; color: var(--muted);
+         border-top: 1px solid var(--line); }
+.notice { padding: .4rem .6rem; margin: .4rem 0; font-size: .78rem;
+          border: 1px solid var(--line); border-radius: 4px;
+          background: rgba(95, 191, 116, .08); color: var(--ink); }
+.notice.error { background: rgba(242, 119, 122, .1); border-color: var(--alert); }

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Drone 4Ren report - case {{ meta.case_number }}</title>
+<style>
+  body { font-family: Georgia, 'Times New Roman', serif; margin: 2.5rem auto;
+         max-width: 60rem; color: #1a1a1a; line-height: 1.45; }
+  h1 { font-size: 1.6rem; border-bottom: 3px double #444; padding-bottom: .4rem; }
+  h2 { font-size: 1.2rem; margin-top: 2.2rem; border-bottom: 1px solid #999;
+       padding-bottom: .2rem; }
+  table { border-collapse: collapse; width: 100%; font-size: .82rem; margin: .6rem 0; }
+  th, td { border: 1px solid #bbb; padding: .28rem .5rem; text-align: left;
+           vertical-align: top; }
+  th { background: #f0f0ea; }
+  code, .mono { font-family: Consolas, Menlo, monospace; font-size: .78rem;
+                word-break: break-all; }
+  .badge { display: inline-block; font-family: Consolas, monospace; font-size: .62rem;
+           padding: .1rem .45rem; border-radius: 3px; vertical-align: middle;
+           letter-spacing: .05em; }
+  .src { background: #dfeadf; border: 1px solid #7a9a7a; }
+  .der { background: #fdeeda; border: 1px solid #c09a5a; }
+  .sev-alert { color: #8b0000; font-weight: bold; }
+  .sev-warning { color: #8a6d00; font-weight: bold; }
+  .sev-info { color: #33516e; }
+  .note { font-size: .8rem; color: #555; font-style: italic; }
+  .ok { color: #1c6b1c; font-weight: bold; }
+  .fail { color: #8b0000; font-weight: bold; }
+  svg { border: 1px solid #bbb; background: #fbfbf7; max-width: 100%; height: auto; }
+  footer { margin-top: 3rem; font-size: .75rem; color: #666;
+           border-top: 1px solid #999; padding-top: .5rem; }
+  @media print { body { margin: 1cm; max-width: none; } }
+</style>
+</head>
+<body>
+
+<h1>UAS Flight Data Report</h1>
+<table>
+  <tr><th>Case number</th><td>{{ meta.case_number }}</td>
+      <th>Case id</th><td class="mono">{{ meta.case_id }}</td></tr>
+  <tr><th>Context</th><td>{{ meta.context }}</td>
+      <th>Operator label</th><td>{{ meta.collector }}</td></tr>
+  <tr><th>Case created (UTC)</th><td>{{ meta.created_utc }}</td>
+      <th>Report generated (UTC)</th><td>{{ generated_utc }}</td></tr>
+  <tr><th>Activity label</th><td>{{ actor }}</td>
+      <th>Tool</th><td>droneforen {{ tool_version }} (Python {{ python_version }})</td></tr>
+  {% if meta.description %}<tr><th>Description</th><td colspan="3">{{ meta.description }}</td></tr>{% endif %}
+</table>
+<p class="note">Sections are labeled
+<span class="badge src">SOURCE-DERIVED</span> (read directly from evidence by a
+versioned parser) or <span class="badge der">ANALYST-DERIVED</span> (computed from
+source events by the stated method). Derived statements are working hypotheses,
+not conclusions. This report's SHA-256 is written to a sidecar file at generation
+time; verify it before relying on a printed or forwarded copy.</p>
+
+<h2>1. Integrity verification at generation time</h2>
+<p>
+Evidence items rehashed: {{ verify.store.item_count }} -
+{% if verify.store.ok %}<span class="ok">all hashes match</span>{% else %}<span class="fail">MISMATCHES FOUND</span>{% endif %}<br>
+Audit log: {{ verify.audit.record_count }} records -
+{% if verify.audit.ok %}<span class="ok">hash chain intact</span>{% else %}<span class="fail">CHAIN BROKEN</span>{% endif %}<br>
+Audit chain head: <code>{{ verify.audit.head_sha256 }}</code>
+</p>
+{% if verify.problems %}
+<table><tr><th>Integrity problem</th></tr>
+{% for p in verify.problems %}<tr><td class="fail">{{ p }}</td></tr>{% endfor %}
+</table>
+{% endif %}
+
+<h2>2. Evidence inventory <span class="badge src">SOURCE-DERIVED</span></h2>
+<table>
+<tr><th>Item</th><th>SHA-256</th><th>Size</th><th>Acquisition</th><th>Data origin</th>
+<th>Added (UTC)</th><th>By</th></tr>
+{% for ev in evidence %}
+<tr><td>{{ ev.original_name }}{% if ev.description %}<br><span class="note">{{ ev.description }}</span>{% endif %}</td>
+<td class="mono">{{ ev.sha256 }}</td><td>{{ ev.size_bytes }}</td>
+<td>{{ ev.acquisition_method }}</td><td>{{ ev.data_origin }}</td>
+<td>{{ ev.added_utc }}</td><td>{{ ev.actor }}</td></tr>
+{% endfor %}
+</table>
+
+<h2>3. Flight reconstruction <span class="badge der">ANALYST-DERIVED</span></h2>
+{% if flights %}
+{% for f in flights %}
+<h3 style="font-size:1rem">{{ f.evidence_name }} <span class="note">({{ f.evidence_sha256[:12] }}, parsed by {{ f.parser }})</span></h3>
+<table>
+<tr>
+<th>First fix (UTC)</th><td>{{ f.first_fix_utc or "-" }}</td>
+<th>Last fix (UTC)</th><td>{{ f.last_fix_utc or "-" }}</td></tr>
+<tr><th>Track duration</th><td>{{ "%.1f s"|format(f.duration_s) if f.duration_s is not none else "-" }}</td>
+<th>Path distance</th><td>{{ "%.0f m"|format(f.path_distance_m) if f.path_distance_m is not none else "-" }}</td></tr>
+<tr><th>Max altitude</th><td>{% if f.max_alt_agl_m is not none %}{{ "%.1f m AGL"|format(f.max_alt_agl_m) }}{% elif f.max_alt_msl_m is not none %}{{ "%.1f m MSL"|format(f.max_alt_msl_m) }}{% else %}-{% endif %}</td>
+<th>Max recorded speed</th><td>{{ "%.1f m/s"|format(f.max_speed_ms) if f.max_speed_ms is not none else "-" }}</td></tr>
+<tr><th>Position fixes</th><td colspan="3">{{ f.position_count }} (after parser downsampling; original evidence retains full rate)</td></tr>
+</table>
+<table>
+<tr><th>Derived item</th><th>Time (UTC)</th><th>Detail</th><th>Method</th></tr>
+{% for item in f.items %}
+<tr><td>{{ item.kind }}</td><td>{{ item.ts_utc or "-" }}</td>
+<td>{{ item.description }}{% if item.lat is not none %}<br><span class="mono">{{ "%.6f"|format(item.lat) }}, {{ "%.6f"|format(item.lon) }}</span>{% endif %}</td>
+<td class="note">{{ item.method }}</td></tr>
+{% endfor %}
+</table>
+{% endfor %}
+{% else %}<p class="note">No flight telemetry sources in this case.</p>{% endif %}
+
+<h2>4. Track map <span class="badge der">ANALYST-DERIVED</span></h2>
+{% if svg_map %}
+{# generated by droneforen.report.make_track_svg, which escapes embedded names #}
+{{ svg_map | safe }}
+<p class="note">Local plot of parsed position fixes with no basemap. Use the exported
+KML/GPX/GeoJSON for GIS overlay.</p>
+{% else %}<p class="note">No positions to plot.</p>{% endif %}
+
+<h2>5. Media correlation <span class="badge der">ANALYST-DERIVED</span></h2>
+{% if correlations %}
+<table>
+<tr><th>Media</th><th>Capture (UTC)</th><th>Correlated</th><th>Track position at capture</th>
+<th>EXIF vs track offset</th><th>Notes</th></tr>
+{% for c in correlations %}
+<tr><td>{{ c.media_name }}<br><span class="mono">{{ c.media_sha256[:12] }}</span></td>
+<td>{{ c.ts_utc or "-" }}</td>
+<td>{{ "yes" if c.correlated else "no" }}</td>
+<td>{% if c.correlated %}<span class="mono">{{ "%.6f"|format(c.track_lat) }}, {{ "%.6f"|format(c.track_lon) }}</span>{% if c.track_alt_msl is not none %} @ {{ c.track_alt_msl }} m MSL{% endif %}<br><span class="note">from {{ c.track_evidence_name }}</span>{% else %}-{% endif %}</td>
+<td>{% if c.offset_m is not none %}{{ c.offset_m }} m{% else %}-{% endif %}</td>
+<td class="note">{{ c.reason or "" }}</td></tr>
+{% endfor %}
+</table>
+{% else %}<p class="note">No media capture events in this case.</p>{% endif %}
+
+<h2>6. Plausibility &amp; integrity findings <span class="badge der">ANALYST-DERIVED</span></h2>
+{% if findings %}
+<table>
+<tr><th>Severity</th><th>Check</th><th>Description</th></tr>
+{% for f in findings %}
+<tr><td class="sev-{{ f.severity }}">{{ f.severity|upper }}</td>
+<td>{{ f.check }}</td><td>{{ f.description }}</td></tr>
+{% endfor %}
+</table>
+{% else %}<p class="note">No findings: all plausibility and integrity checks passed.
+Absence of findings is not proof of authenticity.</p>{% endif %}
+
+<h2>7. Unified timeline <span class="badge src">SOURCE-DERIVED</span></h2>
+<p class="note">{{ timeline_summary.total_events }} events total
+({{ timeline_summary.anchored_events }} UTC-anchored,
+{{ timeline_summary.unanchored_events }} on unanchored clocks{% if timeline_truncated %};
+showing the first {{ timeline_entries|length }} - full timeline via
+<code>droneforen analyze timeline</code> or CSV export{% endif %}).</p>
+<table>
+<tr><th>Time (UTC)</th><th>Event</th><th>Position</th><th>Detail</th><th>Source</th></tr>
+{% for e in timeline_entries %}
+<tr><td>{{ e.ts_utc or ("(" ~ (e.ts_original or "no time") ~ " " ~ (e.clock_confidence or "") ~ ")") }}</td>
+<td>{{ e.event_type }}</td>
+<td>{% if e.lat is not none %}<span class="mono">{{ "%.6f"|format(e.lat) }}, {{ "%.6f"|format(e.lon) }}</span>{% if e.alt_agl is not none %} {{ "%.0f"|format(e.alt_agl) }}m AGL{% elif e.alt_msl is not none %} {{ "%.0f"|format(e.alt_msl) }}m MSL{% endif %}{% endif %}</td>
+<td class="mono">{{ e.payload_compact }}</td>
+<td class="note">{{ e.evidence_name }} · {{ e.source_offset or "" }} · {{ e.parser_name }} {{ e.parser_version }}</td></tr>
+{% endfor %}
+</table>
+
+<h2>8. Reproducibility appendix</h2>
+<h3 style="font-size:1rem">Parser runs</h3>
+<table>
+<tr><th>Run id</th><th>Evidence (input SHA-256)</th><th>Parser</th><th>Status</th>
+<th>Events</th><th>Started (UTC)</th><th>Ended (UTC)</th><th>Settings</th></tr>
+{% for r in parser_runs %}
+<tr><td class="mono">{{ r.id }}</td><td class="mono">{{ r.input_sha256 }}</td>
+<td>{{ r.parser_name }} {{ r.parser_version }}</td><td>{{ r.status }}</td>
+<td>{{ r.event_count if r.event_count is not none else "-" }}</td>
+<td>{{ r.started_utc }}</td><td>{{ r.ended_utc or "-" }}</td>
+<td class="mono">{{ r.settings_json }}</td></tr>
+{% endfor %}
+</table>
+<p class="note">To reproduce: intake the evidence files listed in section 2 (verify
+SHA-256), run each parser at the listed version over the corresponding item, and
+compare event output. The case database is derived and can be rebuilt from
+evidence plus these runs. MD5 values are recorded in evidence manifests for legacy
+inventory interoperability only.</p>
+
+<footer>
+Generated by droneforen {{ tool_version }} on {{ generated_utc }} by {{ actor }}.
+Audit chain head at generation: <code>{{ verify.audit.head_sha256 }}</code> ·
+Report SHA-256 in adjacent <code>.sha256</code> sidecar file.
+</footer>
+</body>
+</html>

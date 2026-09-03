@@ -1,0 +1,233 @@
+{
+ "events": [
+  {
+   "alt_agl": 0.0,
+   "alt_msl": 490.0,
+   "clock_confidence": "receiver",
+   "confidence": 1.0,
+   "event_type": "rid.observation",
+   "heading": 90.0,
+   "lat": 47.397772,
+   "lon": 8.545609,
+   "payload": {
+    "mac": "60:60:1f:5a:4d:99",
+    "operator_lat": 47.397742,
+    "operator_lon": 8.545594,
+    "receiver_lat": 47.398,
+    "receiver_lon": 8.545,
+    "rssi": -62.0,
+    "uas_id": "1581F5FGD226Q00A7891"
+   },
+   "source_offset": "obs:0",
+   "speed": 0.0,
+   "ts_original": "2026-07-08T10:00:02+00:00",
+   "ts_source": "receiver_clock",
+   "ts_utc": "2026-07-08T10:00:02.000000+00:00"
+  },
+  {
+   "alt_agl": 5.0,
+   "alt_msl": 495.0,
+   "clock_confidence": "receiver",
+   "confidence": 1.0,
+   "event_type": "rid.observation",
+   "heading": 90.0,
+   "lat": 47.39779,
+   "lon": 8.545615,
+   "payload": {
+    "mac": "60:60:1f:5a:4d:99",
+    "operator_lat": 47.397742,
+    "operator_lon": 8.545594,
+    "receiver_lat": 47.398,
+    "receiver_lon": 8.545,
+    "rssi": -63.0,
+    "uas_id": "1581F5FGD226Q00A7891"
+   },
+   "source_offset": "obs:1",
+   "speed": 2.5,
+   "ts_original": "2026-07-08T10:00:03+00:00",
+   "ts_source": "receiver_clock",
+   "ts_utc": "2026-07-08T10:00:03.000000+00:00"
+  },
+  {
+   "alt_agl": 15.0,
+   "alt_msl": 505.0,
+   "clock_confidence": "receiver",
+   "confidence": 1.0,
+   "event_type": "rid.observation",
+   "heading": 90.0,
+   "lat": 47.39783,
+   "lon": 8.545665,
+   "payload": {
+    "mac": "60:60:1f:5a:4d:99",
+    "operator_lat": 47.397742,
+    "operator_lon": 8.545594,
+    "receiver_lat": 47.398,
+    "receiver_lon": 8.545,
+    "rssi": -64.0,
+    "uas_id": "1581F5FGD226Q00A7891"
+   },
+   "source_offset": "obs:2",
+   "speed": 5.0,
+   "ts_original": "2026-07-08T10:00:04+00:00",
+   "ts_source": "receiver_clock",
+   "ts_utc": "2026-07-08T10:00:04.000000+00:00"
+  },
+  {
+   "alt_agl": 19.0,
+   "alt_msl": 509.0,
+   "clock_confidence": "receiver",
+   "confidence": 1.0,
+   "event_type": "rid.observation",
+   "heading": 90.0,
+   "lat": 47.397845,
+   "lon": 8.545685,
+   "payload": {
+    "mac": "60:60:1f:5a:4d:99",
+    "operator_lat": 47.397742,
+    "operator_lon": 8.545594,
+    "receiver_lat": 47.398,
+    "receiver_lon": 8.545,
+    "rssi": -65.0,
+    "uas_id": "1581F5FGD226Q00A7891"
+   },
+   "source_offset": "obs:3",
+   "speed": 5.2,
+   "ts_original": "2026-07-08T10:00:04.400000+00:00",
+   "ts_source": "receiver_clock",
+   "ts_utc": "2026-07-08T10:00:04.400000+00:00"
+  },
+  {
+   "alt_agl": 25.0,
+   "alt_msl": 515.0,
+   "clock_confidence": "receiver",
+   "confidence": 1.0,
+   "event_type": "rid.observation",
+   "heading": 90.0,
+   "lat": 47.39789,
+   "lon": 8.545735,
+   "payload": {
+    "mac": "60:60:1f:5a:4d:99",
+    "operator_lat": 47.397742,
+    "operator_lon": 8.545594,
+    "receiver_lat": 47.398,
+    "receiver_lon": 8.545,
+    "rssi": -66.0,
+    "uas_id": "1581F5FGD226Q00A7891"
+   },
+   "source_offset": "obs:4",
+   "speed": 6.0,
+   "ts_original": "2026-07-08T10:00:05+00:00",
+   "ts_source": "receiver_clock",
+   "ts_utc": "2026-07-08T10:00:05.000000+00:00"
+  },
+  {
+   "alt_agl": 30.0,
+   "alt_msl": 520.0,
+   "clock_confidence": "receiver",
+   "confidence": 1.0,
+   "event_type": "rid.observation",
+   "heading": 90.0,
+   "lat": 47.39796,
+   "lon": 8.545815,
+   "payload": {
+    "mac": "60:60:1f:5a:4d:99",
+    "operator_lat": 47.397742,
+    "operator_lon": 8.545594,
+    "receiver_lat": 47.398,
+    "receiver_lon": 8.545,
+    "rssi": -62.0,
+    "uas_id": "1581F5FGD226Q00A7891"
+   },
+   "source_offset": "obs:5",
+   "speed": 7.5,
+   "ts_original": "2026-07-08T10:00:06+00:00",
+   "ts_source": "receiver_clock",
+   "ts_utc": "2026-07-08T10:00:06.000000+00:00"
+  },
+  {
+   "alt_agl": 30.0,
+   "alt_msl": 520.0,
+   "clock_confidence": "receiver",
+   "confidence": 1.0,
+   "event_type": "rid.observation",
+   "heading": 90.0,
+   "lat": 47.39803,
+   "lon": 8.545915,
+   "payload": {
+    "mac": "60:60:1f:5a:4d:99",
+    "operator_lat": 47.397742,
+    "operator_lon": 8.545594,
+    "receiver_lat": 47.398,
+    "receiver_lon": 8.545,
+    "rssi": -63.0,
+    "uas_id": "1581F5FGD226Q00A7891"
+   },
+   "source_offset": "obs:6",
+   "speed": 8.0,
+   "ts_original": "2026-07-08T10:00:07+00:00",
+   "ts_source": "receiver_clock",
+   "ts_utc": "2026-07-08T10:00:07.000000+00:00"
+  },
+  {
+   "alt_agl": 20.0,
+   "alt_msl": 510.0,
+   "clock_confidence": "receiver",
+   "confidence": 1.0,
+   "event_type": "rid.observation",
+   "heading": 90.0,
+   "lat": 47.39796,
+   "lon": 8.545815,
+   "payload": {
+    "mac": "60:60:1f:5a:4d:99",
+    "operator_lat": 47.397742,
+    "operator_lon": 8.545594,
+    "receiver_lat": 47.398,
+    "receiver_lon": 8.545,
+    "rssi": -64.0,
+    "uas_id": "1581F5FGD226Q00A7891"
+   },
+   "source_offset": "obs:7",
+   "speed": 6.0,
+   "ts_original": "2026-07-08T10:00:08+00:00",
+   "ts_source": "receiver_clock",
+   "ts_utc": "2026-07-08T10:00:08.000000+00:00"
+  },
+  {
+   "alt_agl": 12.0,
+   "alt_msl": 502.0,
+   "clock_confidence": "receiver",
+   "confidence": 1.0,
+   "event_type": "rid.observation",
+   "heading": 90.0,
+   "lat": 47.39791,
+   "lon": 8.545755,
+   "payload": {
+    "mac": "60:60:1f:5a:4d:99",
+    "operator_lat": 47.397742,
+    "operator_lon": 8.545594,
+    "receiver_lat": 47.398,
+    "receiver_lon": 8.545,
+    "rssi": -65.0,
+    "uas_id": "1581F5FGD226Q00A7891"
+   },
+   "source_offset": "obs:8",
+   "speed": 4.0,
+   "ts_original": "2026-07-08T10:00:08.500000+00:00",
+   "ts_source": "receiver_clock",
+   "ts_utc": "2026-07-08T10:00:08.500000+00:00"
+  },
+  {
+   "confidence": 1.0,
+   "event_type": "parser.summary",
+   "payload": {
+    "caution": "Remote ID is unauthenticated; corroborate before relying",
+    "distinct_uas_ids": [
+     "1581F5FGD226Q00A7891"
+    ],
+    "observations": 9
+   }
+  }
+ ],
+ "parser": "remoteid-json",
+ "parser_version": "0.1.0"
+}

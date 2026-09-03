@@ -1,0 +1,48 @@
+{
+ "events": [
+  {
+   "alt_agl": 0.0,
+   "clock_confidence": "camera_local",
+   "confidence": 1.0,
+   "event_type": "video.telemetry",
+   "lat": 47.397742,
+   "lon": 8.545594,
+   "payload": {
+    "video_timecode": "00:00:00,000 --> 00:00:01,000"
+   },
+   "source_offset": "block:1",
+   "ts_original": "2026-07-08T10:00:02",
+   "ts_source": "camera_clock"
+  },
+  {
+   "alt_agl": 5.0,
+   "clock_confidence": "camera_local",
+   "confidence": 1.0,
+   "event_type": "video.telemetry",
+   "lat": 47.39776,
+   "lon": 8.5456,
+   "payload": {
+    "video_timecode": "00:00:01,000 --> 00:00:02,000"
+   },
+   "source_offset": "block:2",
+   "ts_original": "2026-07-08T10:00:03",
+   "ts_source": "camera_clock"
+  },
+  {
+   "alt_agl": 15.0,
+   "clock_confidence": "camera_local",
+   "confidence": 1.0,
+   "event_type": "video.telemetry",
+   "lat": 47.3978,
+   "lon": 8.54565,
+   "payload": {
+    "video_timecode": "00:00:02,000 --> 00:00:03,000"
+   },
+   "source_offset": "block:3",
+   "ts_original": "2026-07-08T10:00:04",
+   "ts_source": "camera_clock"
+  }
+ ],
+ "parser": "dji-srt",
+ "parser_version": "0.1.0"
+}

@@ -1,0 +1,31 @@
+{
+ "events": [
+  {
+   "alt_msl": 513.0,
+   "clock_confidence": "gps",
+   "confidence": 1.0,
+   "event_type": "media.capture",
+   "lat": 47.39786111111111,
+   "lon": 8.545719444444444,
+   "payload": {
+    "height": 48,
+    "make": "DJI",
+    "model": "FC3582",
+    "software": "v01.00.0500",
+    "width": 64,
+    "xmp_dji": {
+     "AbsoluteAltitude": "+513.00",
+     "FlightYawDegree": "+90.00",
+     "GimbalPitchDegree": "-90.00",
+     "RelativeAltitude": "+25.00"
+    }
+   },
+   "source_offset": "exif",
+   "ts_original": "2026-07-08T12:00:05",
+   "ts_source": "gps",
+   "ts_utc": "2026-07-08T10:00:05.000+00:00"
+  }
+ ],
+ "parser": "image-exif",
+ "parser_version": "0.1.0"
+}

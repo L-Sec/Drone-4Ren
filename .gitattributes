@@ -1,0 +1,7 @@
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+# evidence-format validation fixtures: never normalize
+*.tlog binary
+*.bin binary
+*.ulg binary

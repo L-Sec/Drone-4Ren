@@ -1,0 +1,282 @@
+{
+ "events": [
+  {
+   "clock_confidence": "logger",
+   "confidence": 1.0,
+   "event_type": "flight.mode",
+   "payload": {
+    "mode": "STABILIZE",
+    "previous_mode": null
+   },
+   "source_offset": "msg:1",
+   "ts_source": "logger_wallclock",
+   "ts_utc": "2026-07-08T10:00:00.000000+00:00"
+  },
+  {
+   "clock_confidence": "logger",
+   "confidence": 1.0,
+   "event_type": "log.message",
+   "payload": {
+    "severity": 6,
+    "text": "ArduCopter V4.5.1 synthetic"
+   },
+   "source_offset": "msg:2",
+   "ts_source": "logger_wallclock",
+   "ts_utc": "2026-07-08T10:00:00.100000+00:00"
+  },
+  {
+   "clock_confidence": "logger",
+   "confidence": 1.0,
+   "event_type": "battery.status",
+   "payload": {
+    "current_a": 8.0,
+    "remaining_pct": 100,
+    "voltage_v": 12.6
+   },
+   "source_offset": "msg:3",
+   "ts_source": "logger_wallclock",
+   "ts_utc": "2026-07-08T10:00:00.200000+00:00"
+  },
+  {
+   "clock_confidence": "logger",
+   "confidence": 1.0,
+   "event_type": "flight.armed",
+   "payload": {
+    "base_mode": 217,
+    "custom_mode": 4
+   },
+   "source_offset": "msg:4",
+   "ts_source": "logger_wallclock",
+   "ts_utc": "2026-07-08T10:00:01.000000+00:00"
+  },
+  {
+   "clock_confidence": "logger",
+   "confidence": 1.0,
+   "event_type": "flight.mode",
+   "payload": {
+    "mode": "GUIDED",
+    "previous_mode": "STABILIZE"
+   },
+   "source_offset": "msg:4",
+   "ts_source": "logger_wallclock",
+   "ts_utc": "2026-07-08T10:00:01.000000+00:00"
+  },
+  {
+   "clock_confidence": "logger",
+   "confidence": 1.0,
+   "event_type": "log.message",
+   "payload": {
+    "severity": 6,
+    "text": "Takeoff detected"
+   },
+   "source_offset": "msg:6",
+   "ts_source": "logger_wallclock",
+   "ts_utc": "2026-07-08T10:00:01.600000+00:00"
+  },
+  {
+   "alt_agl": 0.0,
+   "alt_msl": 488.0,
+   "clock_confidence": "logger",
+   "confidence": 1.0,
+   "event_type": "gps.position",
+   "heading": 90.0,
+   "lat": 47.397742,
+   "lon": 8.545594,
+   "payload": {
+    "fix_type": 3,
+    "satellites": 12
+   },
+   "source_offset": "msg:7",
+   "speed": 0.0,
+   "ts_source": "logger_wallclock",
+   "ts_utc": "2026-07-08T10:00:02.000000+00:00"
+  },
+  {
+   "alt_agl": 5.0,
+   "alt_msl": 493.0,
+   "clock_confidence": "logger",
+   "confidence": 1.0,
+   "event_type": "gps.position",
+   "heading": 90.0,
+   "lat": 47.39776,
+   "lon": 8.5456,
+   "payload": {
+    "fix_type": 3,
+    "satellites": 12
+   },
+   "source_offset": "msg:8",
+   "speed": 2.5,
+   "ts_source": "logger_wallclock",
+   "ts_utc": "2026-07-08T10:00:03.000000+00:00"
+  },
+  {
+   "alt_agl": 15.0,
+   "alt_msl": 503.0,
+   "clock_confidence": "logger",
+   "confidence": 1.0,
+   "event_type": "gps.position",
+   "heading": 90.0,
+   "lat": 47.3977999,
+   "lon": 8.54565,
+   "payload": {
+    "fix_type": 3,
+    "satellites": 12
+   },
+   "source_offset": "msg:9",
+   "speed": 5.0,
+   "ts_source": "logger_wallclock",
+   "ts_utc": "2026-07-08T10:00:04.000000+00:00"
+  },
+  {
+   "alt_agl": 25.0,
+   "alt_msl": 513.0,
+   "clock_confidence": "logger",
+   "confidence": 1.0,
+   "event_type": "gps.position",
+   "heading": 90.0,
+   "lat": 47.39786,
+   "lon": 8.54572,
+   "payload": {
+    "fix_type": 3,
+    "satellites": 12
+   },
+   "source_offset": "msg:11",
+   "speed": 6.0,
+   "ts_source": "logger_wallclock",
+   "ts_utc": "2026-07-08T10:00:05.000000+00:00"
+  },
+  {
+   "alt_agl": 30.0,
+   "alt_msl": 518.0,
+   "clock_confidence": "logger",
+   "confidence": 1.0,
+   "event_type": "gps.position",
+   "heading": 90.0,
+   "lat": 47.39793,
+   "lon": 8.5458,
+   "payload": {
+    "fix_type": 3,
+    "satellites": 12
+   },
+   "source_offset": "msg:12",
+   "speed": 7.5,
+   "ts_source": "logger_wallclock",
+   "ts_utc": "2026-07-08T10:00:06.000000+00:00"
+  },
+  {
+   "alt_agl": 30.0,
+   "alt_msl": 518.0,
+   "clock_confidence": "logger",
+   "confidence": 1.0,
+   "event_type": "gps.position",
+   "heading": 90.0,
+   "lat": 47.398,
+   "lon": 8.5459,
+   "payload": {
+    "fix_type": 3,
+    "satellites": 12
+   },
+   "source_offset": "msg:13",
+   "speed": 8.0,
+   "ts_source": "logger_wallclock",
+   "ts_utc": "2026-07-08T10:00:07.000000+00:00"
+  },
+  {
+   "alt_agl": 20.0,
+   "alt_msl": 508.0,
+   "clock_confidence": "logger",
+   "confidence": 1.0,
+   "event_type": "gps.position",
+   "heading": 90.0,
+   "lat": 47.39793,
+   "lon": 8.5458,
+   "payload": {
+    "fix_type": 3,
+    "satellites": 12
+   },
+   "source_offset": "msg:14",
+   "speed": 6.0,
+   "ts_source": "logger_wallclock",
+   "ts_utc": "2026-07-08T10:00:08.000000+00:00"
+  },
+  {
+   "clock_confidence": "logger",
+   "confidence": 1.0,
+   "event_type": "battery.status",
+   "payload": {
+    "current_a": 25.0,
+    "remaining_pct": 91,
+    "voltage_v": 12.1
+   },
+   "source_offset": "msg:16",
+   "ts_source": "logger_wallclock",
+   "ts_utc": "2026-07-08T10:00:06.500000+00:00"
+  },
+  {
+   "clock_confidence": "logger",
+   "confidence": 1.0,
+   "event_type": "flight.mode",
+   "payload": {
+    "mode": "RTL",
+    "previous_mode": "GUIDED"
+   },
+   "source_offset": "msg:17",
+   "ts_source": "logger_wallclock",
+   "ts_utc": "2026-07-08T10:00:07.500000+00:00"
+  },
+  {
+   "clock_confidence": "logger",
+   "confidence": 1.0,
+   "event_type": "flight.disarmed",
+   "payload": {
+    "base_mode": 81,
+    "custom_mode": 6
+   },
+   "source_offset": "msg:18",
+   "ts_source": "logger_wallclock",
+   "ts_utc": "2026-07-08T10:00:09.000000+00:00"
+  },
+  {
+   "clock_confidence": "logger",
+   "confidence": 1.0,
+   "event_type": "log.message",
+   "payload": {
+    "severity": 6,
+    "text": "Disarming motors"
+   },
+   "source_offset": "msg:19",
+   "ts_source": "logger_wallclock",
+   "ts_utc": "2026-07-08T10:00:09.100000+00:00"
+  },
+  {
+   "alt_agl": 12.0,
+   "alt_msl": 500.0,
+   "clock_confidence": "logger",
+   "confidence": 1.0,
+   "event_type": "gps.position",
+   "heading": 90.0,
+   "lat": 47.39788,
+   "lon": 8.54574,
+   "payload": {
+    "fix_type": 3,
+    "satellites": 12
+   },
+   "source_offset": "msg:15",
+   "speed": 4.0,
+   "ts_source": "logger_wallclock",
+   "ts_utc": "2026-07-08T10:00:08.500000+00:00"
+  },
+  {
+   "confidence": 1.0,
+   "event_type": "parser.summary",
+   "payload": {
+    "bad_frames": 0,
+    "messages_read": 19,
+    "position_downsample_interval_s": 1.0
+   },
+   "source_offset": "msg:19"
+  }
+ ],
+ "parser": "mavlink-tlog",
+ "parser_version": "0.1.0"
+}

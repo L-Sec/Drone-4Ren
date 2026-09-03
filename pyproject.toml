@@ -1,0 +1,94 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "droneforen"
+version = "1.0.0b2.dev2"
+description = "Local UAS forensic workspace for evidence intake, log parsing, analysis, and reporting."
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+requires-python = ">=3.12"
+authors = [{ name = "Drone 4Ren contributors" }]
+keywords = ["forensics", "drone", "uas", "uav", "dfir", "evidence"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Information Technology",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Security",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "typer>=0.12",
+    "pydantic>=2.7",
+    "pymavlink>=2.4.40",
+    "pyulog>=1.0",
+    "Pillow>=10.0",
+    "jinja2>=3.1",
+    "fpdf2>=2.7",
+    "fastapi>=0.110",
+    "uvicorn>=0.30",
+    "python-multipart>=0.0.9",
+    "pydjirecord>=1.3,<2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.5",
+    "piexif>=1.1",  # fixture generation only (writing EXIF); parsers read via Pillow
+    "httpx>=0.27",  # FastAPI TestClient
+]
+
+[project.scripts]
+droneforen = "droneforen.cli:main"
+
+# Parser plugins are discovered through this entry-point group. Third-party
+# packages register their parsers the same way (ARCHITECTURE.md §5).
+[project.entry-points."droneforen.parsers"]
+plaintext = "droneforen.parsers.plaintext:PlainTextParser"
+dji-srt = "droneforen.parsers.dji_srt:DjiSrtParser"
+image-exif = "droneforen.parsers.image_exif:ImageExifParser"
+mavlink-tlog = "droneforen.parsers.mavlink_tlog:MavlinkTlogParser"
+ardupilot-bin = "droneforen.parsers.ardupilot_bin:ArduPilotBinParser"
+px4-ulog = "droneforen.parsers.px4_ulog:Px4UlogParser"
+dji-txt = "droneforen.parsers.dji_txt:DjiTxtParser"
+remoteid-json = "droneforen.parsers.remoteid_json:RemoteIdJsonParser"
+readiness-jsonl = "droneforen.parsers.readiness_jsonl:ReadinessJsonlParser"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/droneforen"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/.gitattributes",
+    "/.github",
+    "/ARCHITECTURE.md",
+    "/CHANGELOG.md",
+    "/LICENSE",
+    "/README.md",
+    "/REQUIREMENTS.md",
+    "/ROADMAP.md",
+    "/SECURITY.md",
+    "/pyproject.toml",
+    "/src",
+    "/tests",
+    "/validation",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B"]
+
+[tool.ruff.lint.per-file-ignores]
+# B008: typer and FastAPI document call-in-default parameter style.
+"src/droneforen/cli.py" = ["B008"]
+"src/droneforen/api.py" = ["B008"]

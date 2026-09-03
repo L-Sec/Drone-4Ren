@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Drone 4Ren</title>
+<link rel="stylesheet" href="/static/style.css?v=__DRONEFOREN_VERSION__">
+</head>
+<body>
+<header>
+  <h1>Drone 4Ren <span id="case-number" class="case-chip">...</span></h1>
+  <nav id="tabs">
+    <button data-tab="dashboard" class="active">Dashboard</button>
+    <button data-tab="timeline">Timeline</button>
+    <button data-tab="map">Map</button>
+    <button data-tab="flight">Flight</button>
+    <button data-tab="checks">Checks</button>
+    <button data-tab="links">Links</button>
+    <button data-tab="reports">Reports</button>
+    <button data-tab="audit">Audit</button>
+  </nav>
+</header>
+
+<main>
+  <section id="tab-dashboard" class="tab active">
+    <div class="grid2">
+      <div class="card">
+        <h2>Case</h2>
+        <table id="case-meta"></table>
+        <button id="btn-verify">Verify integrity now</button>
+        <div id="verify-result"></div>
+      </div>
+      <div class="card">
+        <h2>Intake evidence</h2>
+        <div class="warnbox">
+          <strong>Before you handle a device:</strong>
+          <ul id="warnings-list"></ul>
+          <label><input type="checkbox" id="ack"> I have considered these
+          evidence-alteration risks for this intake.</label>
+        </div>
+        <form id="intake-form">
+          <input type="file" id="f-file" required>
+          <input type="text" id="f-desc" placeholder="Description">
+          <div class="row">
+            <select id="f-acq">
+              <option value="logical">logical</option>
+              <option value="physical">physical</option>
+              <option value="chip-off">chip-off</option>
+              <option value="cloud">cloud</option>
+              <option value="manufacturer-export">manufacturer-export</option>
+              <option value="image-import">image-import</option>
+            </select>
+            <select id="f-origin">
+              <option value="original_raw">original_raw</option>
+              <option value="manufacturer_exported">manufacturer_exported</option>
+              <option value="decrypted_proprietary">decrypted_proprietary</option>
+              <option value="processed">processed</option>
+              <option value="cloud_derived">cloud_derived</option>
+            </select>
+          </div>
+          <input type="text" id="f-device" placeholder="Source device (e.g. 'Mavic 3 SD card')">
+          <div class="row">
+            <input type="text" id="f-wbmake" placeholder="Write blocker make">
+            <input type="text" id="f-wbmodel" placeholder="model">
+            <input type="text" id="f-wbtest" placeholder="test result">
+          </div>
+          <button type="submit">Intake (hash + freeze)</button>
+        </form>
+        <div id="intake-result"></div>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Evidence</h2>
+      <table id="evidence-table"></table>
+    </div>
+  </section>
+
+  <section id="tab-timeline" class="tab">
+    <div class="card">
+      <h2>Unified timeline <span id="tl-summary" class="muted"></span></h2>
+      <div class="row">
+        <select id="tl-type"><option value="">all event types</option></select>
+        <select id="tl-source"><option value="">all sources</option></select>
+        <button id="tl-prev">◀ prev</button>
+        <span id="tl-page">1</span>
+        <button id="tl-next">next ▶</button>
+      </div>
+      <table id="timeline-table"></table>
+    </div>
+  </section>
+
+  <section id="tab-map" class="tab">
+    <div class="card">
+      <h2>Track map <span class="badge der">ANALYST-DERIVED</span></h2>
+      <div class="row">
+        <button id="map-offline" class="active">Offline schematic</button>
+        <button id="map-online">Load street basemap (online)</button>
+        <span id="map-mode-note" class="muted">Offline map · no tile requests</span>
+      </div>
+      <div id="map-warning"></div>
+      <div id="map-holder"></div>
+      <p class="muted" id="map-caption">Local plot of parsed positions with
+        scale bar and north arrow. Export
+        KML/GPX/GeoJSON below for GIS overlay in a full mapping tool.</p>
+      <div class="row">
+        <button class="btn-export" data-fmt="kml">Export KML</button>
+        <button class="btn-export" data-fmt="gpx">Export GPX</button>
+        <button class="btn-export" data-fmt="geojson">Export GeoJSON</button>
+        <button class="btn-export" data-fmt="csv">Export CSV</button>
+      </div>
+      <div id="export-result"></div>
+    </div>
+  </section>
+
+  <section id="tab-flight" class="tab">
+    <div class="card">
+      <h2>Flight reconstruction <span class="badge der">ANALYST-DERIVED</span></h2>
+      <div id="flights"></div>
+      <h2>Media correlation</h2>
+      <table id="correlations-table"></table>
+    </div>
+  </section>
+
+  <section id="tab-checks" class="tab">
+    <div class="card">
+      <h2>Plausibility &amp; integrity findings
+        <span class="badge der">ANALYST-DERIVED</span></h2>
+      <table id="checks-table"></table>
+    </div>
+  </section>
+
+  <section id="tab-links" class="tab">
+    <div class="card">
+      <h2>Entity link graph <span class="badge der">ANALYST-DERIVED</span></h2>
+      <p id="entities-caveat" class="warnbox"></p>
+      <table id="entities-table"></table>
+      <h2>Links</h2>
+      <table id="edges-table"></table>
+      <h2>Scenario worksheets</h2>
+      <div class="row" id="scenario-buttons"></div>
+      <div id="scenario-result"></div>
+    </div>
+  </section>
+
+  <section id="tab-reports" class="tab">
+    <div class="card">
+      <h2>Reports</h2>
+      <div class="row">
+        <button id="btn-report-html">Generate HTML report</button>
+        <button id="btn-report-pdf">Generate PDF report</button>
+      </div>
+      <div id="report-result"></div>
+      <table id="reports-table"></table>
+    </div>
+  </section>
+
+  <section id="tab-audit" class="tab">
+    <div class="card">
+      <h2>Audit log <span id="audit-total" class="muted"></span></h2>
+      <table id="audit-table"></table>
+    </div>
+  </section>
+</main>
+<footer>Drone 4Ren - local single-user workspace. GUI reads are not
+per-request audited; intake, parsing, verification, reports and exports are.</footer>
+<script src="/static/app.js?v=__DRONEFOREN_VERSION__"></script>
+</body>
+</html>
