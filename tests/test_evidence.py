@@ -34,7 +34,7 @@ def test_verify_detects_corrupted_original(case, sample_log):
     assert case.verify(actor="pytest").ok
 
     stored = case.store.data_path(added.manifest.sha256)
-    os.chmod(stored, stat.S_IWRITE)
+    os.chmod(stored, os.stat(stored).st_mode | stat.S_IWRITE)
     with open(stored, "ab") as fh:
         fh.write(b"tampered")
 

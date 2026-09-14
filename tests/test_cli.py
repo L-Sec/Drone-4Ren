@@ -87,7 +87,7 @@ def test_verify_fails_on_tampered_evidence(tmp_path, sample_log):
     case = CaseWorkspace.open(case_dir)
     sha = case.store.iter_hashes()[0]
     stored = case.store.data_path(sha)
-    os.chmod(stored, stat.S_IWRITE)
+    os.chmod(stored, os.stat(stored).st_mode | stat.S_IWRITE)
     stored.write_bytes(b"evil")
 
     result = runner.invoke(app, ["case", "verify", str(case_dir), "--actor", "cli-test"])
